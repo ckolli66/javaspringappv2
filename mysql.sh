@@ -14,6 +14,7 @@ set +a
 
 mysql -e "CREATE DATABASE IF NOT EXISTS todo_app"
 mysql -e "CREATE USER IF NOT EXISTS '$DB_USER'@'$DB_HOST' IDENTIFIED BY '$DB_PASS'";
-mysql -e "GRANT ALL PRIVILEGES ON todo_app.* TO '$DB_USER'@'$DB_HOST' AND FLUSH PRIVILEGES;"
+mysql -e "GRANT ALL PRIVILEGES ON todo_app.* TO '$DB_USER'@'$DB_HOST';"
+mysql -e "FLUSH PRIVILEGES;"
 
 systemctl restart mysqld
