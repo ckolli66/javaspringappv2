@@ -1,0 +1,16 @@
+[Unit]
+Description = deployment service
+After=network.target mariadb.service
+Requires=mariadb.service
+
+[Service]
+User=ec2-user
+WorkingDirectory=/app
+#Environment=SPRING_PROFILES_ACTIVE=default
+EnvironmentFile=/opt/deployment.env
+ExecStart=/usr/bin/java -jar /app/deployment.jar
+Restart=always
+SyslogIdentifier=todoapp
+
+[Install]
+WantedBy=multi-user.target
