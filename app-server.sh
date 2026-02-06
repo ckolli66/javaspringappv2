@@ -11,8 +11,9 @@ set +a
 cp deployment.service /etc/systemd/system/deployment.service
 mkdir /app
 curl -L -o /tmp/todoapp.zip https://java-todoapp.s3.amazonaws.com/todo_app.zip
-unzip /tmp/todoapp.zip
-cd /app
+rm -rf /app/todo_app
+unzip -q /tmp/todoapp.zip -d /app
+cd /app/todo_app
 mvn clean package -DskipTests
 mv target/todo_application-0.0.1-SNAPSHOT.jar /app
 cd /app
