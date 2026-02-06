@@ -1,7 +1,5 @@
 [Unit]
 Description = deployment service
-After=network.target mariadb.service
-Requires=mariadb.service
 
 [Service]
 User=ec2-user
